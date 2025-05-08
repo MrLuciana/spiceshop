@@ -1,0 +1,20 @@
+spiceshop/
+├── index.php   /
+├── product_detail.php
+├── cart.php
+├── checkout.php
+├── login.php   /
+├── register.php
+├── logout.php  /
+├── includes/
+│   ├── db.php  /
+│   ├── functions.php   /
+│   └── header.php  /
+├── admin/
+│   ├── index.php   /
+│   ├── products.php    /
+│   ├── orders.php  /
+├── assets/
+│   ├── css/
+│   └── js/
+└── uploads/   ← เก็บรูปสินค้า
