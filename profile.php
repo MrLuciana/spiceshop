@@ -94,15 +94,15 @@ require_once 'includes/header-front.php';
                                                     'waiting_payment_verify' => 'bg-blue-100 text-blue-800',
                                                     'paid' => 'bg-green-100 text-green-800',
                                                     'shipped' => 'bg-indigo-100 text-indigo-800',
-                                                    'delivered' => 'bg-gray-100 text-gray-700',
+                                                    'delivered' => 'bg-green-100 text-gray-700',
                                                     'cancelled' => 'bg-red-100 text-red-700',
                                                     default => 'bg-gray-100 text-gray-600'
                                                 } ?>">
                                                 <?php
                                                 $statusText = match ($o['status']) {
                                                     'pending' => 'รอชำระเงิน',
-                                                    'waiting_payment_verify' => 'รอตรวจสอบ',
-                                                    'paid' => 'ชำระเงินแล้ว',
+                                                    'waiting_payment_verify' => 'รอตรวจสอบการชำระเงิน',
+                                                    'processing' => 'กำลังเตรียมสินค้า',
                                                     'shipped' => 'กำลังจัดส่ง',
                                                     'delivered' => 'จัดส่งสำเร็จ',
                                                     'cancelled' => 'ยกเลิกแล้ว',
@@ -119,7 +119,7 @@ require_once 'includes/header-front.php';
                                                 <a href="upload_payment.php?order_id=<?= $o['order_id'] ?>" class="text-yellow-600 hover:underline text-sm block">ชำระเงิน</a>
                                             <?php endif; ?>
                                             <?php if (!empty($o['payment_slip']) && $o['status'] !== 'pending'): ?>
-                                                <a href="uploads/<?= $o['payment_slip'] ?>" target="_blank" class="text-green-600 hover:underline text-sm block">ดูสลิป</a>
+                                                <a href="#" onclick="showSlipModal('uploads/slips/<?= $o['payment_slip'] ?>')" class="text-green-600 hover:underline">ดูสลิป</a>
                                             <?php endif; ?>
                                             <?php if (in_array($o['status'], ['paid', 'shipped', 'delivered'])): ?>
                                                 <a href="invoice.php?order_id=<?= $o['order_id'] ?>" class="text-indigo-600 hover:underline text-sm block">พิมพ์ใบเสร็จ</a>
@@ -136,4 +136,32 @@ require_once 'includes/header-front.php';
     </div>
 </section>
 
+<!-- Modal ดูสลิป -->
+<div id="slipModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center">
+    <div class="bg-white rounded-lg overflow-hidden shadow-lg max-w-sm w-full relative">
+        <button onclick="closeSlipModal()" class="absolute top-2 right-2 text-gray-400 hover:text-black">✕</button>
+        <div class="p-4">
+            <h2 class="text-lg font-bold mb-2">หลักฐานการชำระเงิน</h2>
+            <img id="slipImage" src="" alt="สลิป" class="w-full rounded shadow">
+        </div>
+    </div>
+</div>
+
 <?php require_once 'includes/footer-front.php'; ?>
+<script>
+    function showSlipModal(imageUrl) {
+        const modal = document.getElementById('slipModal');
+        const img = document.getElementById('slipImage');
+        img.src = imageUrl;
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+    }
+
+    function closeSlipModal() {
+        const modal = document.getElementById('slipModal');
+        const img = document.getElementById('slipImage');
+        img.src = "";
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+    }
+</script>

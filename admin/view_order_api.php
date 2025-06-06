@@ -21,8 +21,32 @@ $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <h2 class="text-xl font-bold mb-2">คำสั่งซื้อ #<?= $order['order_id'] ?></h2>
 <p><strong>ผู้สั่งซื้อ:</strong> <?= htmlspecialchars($order['username']) ?></p>
 <p><strong>วันที่:</strong> <?= $order['order_date'] ?></p>
-<p><strong>สถานะ:</strong> <?= $order['status'] ?></p>
+<p><strong>สถานะ:</strong>
+    <?= match ($order['status'] ?? '') {
+        'pending' => 'รอชำระเงิน',
+        'processing' => 'กำลังเตรียมสินค้า',
+        'shipped' => 'จัดส่งแล้ว',
+        'delivered' => 'จัดส่งสำเร็จ',
+        'cancelled' => 'ยกเลิกแล้ว',
+        'waiting_payment_verify' => 'รอตรวจสอบการชำระเงิน',
+        default => 'ไม่ทราบสถานะ'
+    } ?>
+</p>
 <p><strong>ยอดรวม:</strong> ฿<?= number_format($order['total_amount'], 2) ?></p>
+<p><strong>ช่องทางชำระเงิน:</strong>
+    <?= match ($order['payment_method'] ?? '') {
+        'qr' => 'โอนผ่าน QR',
+        'cod' => 'เก็บเงินปลายทาง',
+        default => 'ไม่ระบุ'
+    } ?>
+</p>
+
+<?php if (!empty($order['payment_slip'])): ?>
+    <p><strong>หลักฐานการโอน:</strong></p>
+    <img src="../uploads/slips/<?= htmlspecialchars($order['payment_slip']) ?>"
+        alt="สลิปการโอน"
+        class="w-60 border rounded shadow my-2">
+<?php endif; ?>
 
 <h3 class="text-lg font-semibold mt-4 mb-2">รายการสินค้า</h3>
 <table class="min-w-full text-sm border rounded">
@@ -36,12 +60,12 @@ $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </thead>
     <tbody>
         <?php foreach ($items as $item): ?>
-        <tr>
-            <td class="px-2 py-1"><?= htmlspecialchars($item['name']) ?></td>
-            <td class="px-2 py-1"><?= $item['quantity'] ?></td>
-            <td class="px-2 py-1">฿<?= number_format($item['price'], 2) ?></td>
-            <td class="px-2 py-1">฿<?= number_format($item['price'] * $item['quantity'], 2) ?></td>
-        </tr>
+            <tr>
+                <td class="px-2 py-1"><?= htmlspecialchars($item['name']) ?></td>
+                <td class="px-2 py-1"><?= $item['quantity'] ?></td>
+                <td class="px-2 py-1">฿<?= number_format($item['price'], 2) ?></td>
+                <td class="px-2 py-1">฿<?= number_format($item['price'] * $item['quantity'], 2) ?></td>
+            </tr>
         <?php endforeach; ?>
     </tbody>
 </table>
