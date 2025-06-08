@@ -38,7 +38,7 @@ require_once 'includes/header-front.php';
       <p class="mb-2 text-gray-600 text-base sm:text-lg">ยอดชำระ:</p>
       <p class="text-xl sm:text-2xl font-bold text-green-600 mb-4">฿<?= number_format($order['total_amount'], 2) ?></p>
 
-      <img src="assets/qr-payment.png" alt="QR Code"
+      <img src="assets/qr-payment.jpg" alt="QR Code"
            class="mx-auto w-full max-w-xs aspect-[1/1] border rounded shadow" />
       <p class="text-sm mt-3 text-gray-500">กรุณาสแกน QR Code เพื่อทำการชำระเงิน</p>
     </div>

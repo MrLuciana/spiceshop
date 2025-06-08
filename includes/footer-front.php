@@ -1,6 +1,6 @@
 <footer class="bg-[#F3E9DD] text-[#5C3A21] text-sm text-center py-5 border-t">
   <div class="max-w-7xl mx-auto px-4">
-    &copy; <?= date('Y') ?> ร้านเครื่องแกงชุมชนบ้านไสหลวง. พัฒนาโดยทีมชุมชน
+    &copy; <?= date('Y') ?> ร้านเครื่องแกงชุมชนบ้านใสหลวง.
   </div>
 </footer>
 

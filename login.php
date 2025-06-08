@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <!-- โลโก้/หัวเรื่อง -->
     <div class="text-center">
       <h1 class="text-2xl font-bold text-[#5C3A21] mb-1">เข้าสู่ระบบ</h1>
-      <p class="text-sm text-gray-600">ยินดีต้อนรับกลับสู่ร้านเครื่องแกงชุมชนไสหลวง</p>
+      <p class="text-sm text-gray-600">ยินดีต้อนรับกลับสู่ร้านเครื่องแกงชุมชนใสหลวง</p>
     </div>
 
     <!-- แจ้งเตือน -->

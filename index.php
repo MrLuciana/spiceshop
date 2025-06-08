@@ -16,8 +16,8 @@ $products = $pdo->query("SELECT * FROM products ORDER BY product_id DESC LIMIT 4
   style="background-image: url('assets/banner-curry.jpg');">
   <div class="absolute inset-0 bg-black bg-opacity-50"></div>
   <div class="relative z-10">
-    <h2 class="text-5xl font-bold mb-4 animate-fade-in text-white">ยินดีต้อนรับสู่ร้านเครื่องแกงชุมชนไสหลวง</h2>
-    <p class="text-lg animate-fade-in">สดใหม่จากชุมชนบ้านไสหลวง ทุกคำคือความตั้งใจ</p>
+    <h2 class="text-5xl font-bold mb-4 animate-fade-in text-white">ยินดีต้อนรับสู่ร้านเครื่องแกงชุมชนใสหลวง</h2>
+    <p class="text-lg animate-fade-in">สดใหม่จากชุมชนบ้านใสหลวง ทุกคำคือความตั้งใจ</p>
     <a href="products.php" class="mt-6 inline-block bg-yellow-500 text-white px-6 py-2 rounded-lg shadow hover:bg-yellow-400 transition animate-fade-in">
       เลือกซื้อสินค้า
     </a>
@@ -26,7 +26,7 @@ $products = $pdo->query("SELECT * FROM products ORDER BY product_id DESC LIMIT 4
 
 <!-- จุดเด่นของร้าน -->
 <section class="py-12 bg-yellow-50 text-center">
-  <h3 class="text-2xl font-bold mb-8">ทำไมต้องเครื่องแกงไสหลวง?</h3>
+  <h3 class="text-2xl font-bold mb-8">ทำไมต้องเครื่องแกงใสหลวง?</h3>
   <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto text-[#5C3A21] animate-fade-in">
     <div class="bg-white shadow-md rounded-lg p-4">🌶 สดใหม่ทุกวัน</div>
     <div class="bg-white shadow-md rounded-lg p-4">👩‍🍳 ทำมือจากชาวบ้าน</div>
@@ -79,5 +79,35 @@ $products = $pdo->query("SELECT * FROM products ORDER BY product_id DESC LIMIT 4
     <?php endforeach; ?>
   </div>
 </section>
+ <!-- Footer -->
+<footer class="bg-gray-800 text-white py-4">
+  <div class="max-w-6xl mx-auto px-4">
+    <!-- ส่วนข้อมูลหลัก -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+      <!-- เกี่ยวกับเรา -->
+      <div>
+        <h3 class="text-xl font-bold mb-4">เกี่ยวกับเรา</h3>
+        <h3 class="text-gray-400">เราคือร้านเครื่องแกงชุมชนบ้านใสหลวง<p>
+        จำหน่ายเครื่องแกงสดตำมือ หอม เข้มข้น ส่งตรงจากครัวชุมชนถึงบ้านคุณ ปรุงง่าย ได้รสแท้แบบใต้</h3>
+      </div>
+      <!-- ติดต่อเรา -->
+      <div>
+        <h3 class="text-xl font-bold mb-4">ติดต่อเรา</h3>
+        <ul class="text-gray-400">
+          <li class="mb-2">โทร: 098-254-8215</li>
+          <li class="mb-2">ที่อยู่: บ้านเลขที่ 135 หมู่ 10 ตำบลปันแต อำเภอควนขนุน จังหวัดพัทลุง</li>
+        </ul>
+      </div>
+      <!-- ติดตามเรา -->
+      <div>
+        <h3 class="text-xl font-bold mb-4">ติดตามเรา</h3>
+        <div class="flex space-x-4">
+          <!-- Facebook -->
+        <a href="https://www.facebook.com/share/16YJXR2JDv/?mibextid=wwXIfr" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" class="w-6 h-6">
+      </a>
+        </div>
+      </div>
+    </div>
 
 <?php require_once 'includes/footer-front.php'; ?>

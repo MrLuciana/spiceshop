@@ -10,7 +10,7 @@ if (isset($_SESSION['cart']) && is_array($_SESSION['cart'])) {
 <nav id="navbar" class="bg-[#A47551] bg-opacity-90 backdrop-blur-md text-white sticky top-0 z-50 transition-all duration-300 ease-in-out py-4">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between">
-      <div id="navbar-logo" class="text-xl font-bold tracking-wide transition-all duration-300">เครื่องแกงชุมชน</div>
+      <div id="navbar-logo" class="text-xl font-bold tracking-wide transition-all duration-300">เครื่องแกงชุมชนบ้านใสหลวง</div>
 
       <!-- Hamburger -->
       <div class="md:hidden">

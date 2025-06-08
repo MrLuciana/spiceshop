@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-md space-y-6 animate-fade-in">
     <div class="text-center">
       <h1 class="text-2xl font-bold text-[#5C3A21] mb-1">สมัครสมาชิก</h1>
-      <p class="text-sm text-gray-600">สร้างบัญชีใหม่สำหรับร้านเครื่องแกงชุมชน</p>
+      <p class="text-sm text-gray-600">สร้างบัญชีใหม่สำหรับร้านเครื่องแกงชุมชนใสหลวง</p>
     </div>
 
     <?php if ($error): ?>
