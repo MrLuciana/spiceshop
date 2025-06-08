@@ -1,8 +1,8 @@
 <?php
 $host = 'localhost';
-$dbname = 'spiceshop-db';
-$user = 'root';
-$pass = '';
+$dbname = 'spiceshop_db';
+$user = 'mrlu_spiceshop';
+$pass = '597$qj6rW';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $user, $pass);
