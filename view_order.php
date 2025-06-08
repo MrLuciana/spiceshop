@@ -65,7 +65,7 @@ require_once 'includes/header-front.php';
       <?php if (!empty($order['payment_slip'])): ?>
         <div>
           <p class="text-gray-500">หลักฐานการชำระเงิน</p>
-          <a href="uploads/<?= $order['payment_slip'] ?>" target="_blank" class="text-blue-600 hover:underline">ดูสลิป</a>
+          <a onclick="showSlipModal('uploads/slips/<?= $order['payment_slip'] ?>')" target="_blank" class="text-blue-600 hover:underline">ดูสลิป</a>
         </div>
       <?php endif; ?>
     </div>
@@ -98,4 +98,32 @@ require_once 'includes/header-front.php';
   </div>
 </section>
 
+<!-- Modal ดูสลิป -->
+<div id="slipModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center">
+    <div class="bg-white rounded-lg overflow-hidden shadow-lg max-w-sm w-full relative">
+        <button onclick="closeSlipModal()" class="absolute top-2 right-2 text-gray-400 hover:text-black">✕</button>
+        <div class="p-4">
+            <h2 class="text-lg font-bold mb-2">หลักฐานการชำระเงิน</h2>
+            <img id="slipImage" src="" alt="สลิป" class="w-full rounded shadow">
+        </div>
+    </div>
+</div>
+
 <?php require_once 'includes/footer-front.php'; ?>
+<script>
+    function showSlipModal(imageUrl) {
+        const modal = document.getElementById('slipModal');
+        const img = document.getElementById('slipImage');
+        img.src = imageUrl;
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+    }
+
+    function closeSlipModal() {
+        const modal = document.getElementById('slipModal');
+        const img = document.getElementById('slipImage');
+        img.src = "";
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+    }
+</script>

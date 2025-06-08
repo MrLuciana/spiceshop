@@ -119,7 +119,7 @@ require_once 'includes/header-front.php';
                                                 <a href="upload_payment.php?order_id=<?= $o['order_id'] ?>" class="text-yellow-600 hover:underline text-sm block">ชำระเงิน</a>
                                             <?php endif; ?>
                                             <?php if (!empty($o['payment_slip']) && $o['status'] !== 'pending'): ?>
-                                                <a href="#" onclick="showSlipModal('uploads/slips/<?= $o['payment_slip'] ?>')" class="text-green-600 hover:underline">ดูสลิป</a>
+                                                <a onclick="showSlipModal('uploads/slips/<?= $o['payment_slip'] ?>')" class="text-green-600 hover:underline">ดูสลิป</a>
                                             <?php endif; ?>
                                             <?php if (in_array($o['status'], ['paid', 'shipped', 'delivered'])): ?>
                                                 <a href="invoice.php?order_id=<?= $o['order_id'] ?>" class="text-indigo-600 hover:underline text-sm block">พิมพ์ใบเสร็จ</a>
