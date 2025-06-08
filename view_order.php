@@ -65,7 +65,7 @@ require_once 'includes/header-front.php';
       <?php if (!empty($order['payment_slip'])): ?>
         <div>
           <p class="text-gray-500">หลักฐานการชำระเงิน</p>
-          <a href="#" onclick="showSlipModal('uploads/slips/<?= $order['payment_slip'] ?>')" target="_blank" class="text-blue-600 hover:underline">ดูสลิป</a>
+          <a onclick="showSlipModal('uploads/slips/<?= $order['payment_slip'] ?>')" target="_blank" class="text-blue-600 hover:underline">ดูสลิป</a>
         </div>
       <?php endif; ?>
     </div>
